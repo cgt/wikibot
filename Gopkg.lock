@@ -10,8 +10,7 @@
 [[projects]]
   name = "github.com/antonholmquist/jason"
   packages = ["."]
-  revision = "c23cef7eaa75a6a5b8810120e167bd590d8fd2ab"
-  version = "v1.0.0"
+  revision = "962e09b85496e2e158eec1567fb4c826ce3d55d1"
 
 [[projects]]
   branch = "master"
@@ -22,6 +21,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "b76541720cf87b4e7103e82016e33d240b9be7ac89608814b7a9798968d9f366"
+  inputs-digest = "a0496c5a1928fe5875526c0b947212914f4cfc7f8ddfecfab7839a8597886cba"
   solver-name = "gps-cdcl"
   solver-version = 1
