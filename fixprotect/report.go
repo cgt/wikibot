@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 
+	"cgt.name/pkg/go-mwclient"
 	"cgt.name/pkg/go-mwclient/params"
 )
 
@@ -38,11 +39,17 @@ func (w *Bot) generateReport() string {
 // ReportMissing depends on w.tfull, etc.
 func (w *Bot) ReportMissing() error {
 	report := w.generateReport()
-	return w.Edit(params.Values{
+	err := w.Edit(params.Values{
 		"title":    "Bruger:Cgt/Beskyttelsesskabeloner",
 		"text":     report,
 		"summary":  "Robot: Opdaterer rapport",
 		"notminor": "",
 		"bot":      "",
 	})
+
+	// Suppress unimportant "no change" error
+	if err == mwclient.ErrEditNoChange {
+		err = nil
+	}
+	return err
 }
