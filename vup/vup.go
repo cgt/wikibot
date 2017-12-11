@@ -94,6 +94,18 @@ var updaters = []struct {
 		"Linux",
 		FetchLinux,
 	},
+	{
+		"Git",
+		FetchGit,
+	},
+	{
+		"Mozilla Firefox",
+		FetchFirefox,
+	},
+	{
+		"WeeChat",
+		FetchWeeChat,
+	},
 }
 
 type VersionFetcher func() (Version, error)
