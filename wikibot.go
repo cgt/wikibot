@@ -2,10 +2,26 @@ package wikibot
 
 import (
 	"encoding/json"
+	"flag"
+	"math/rand"
 	"os"
+	"time"
 
 	mwclient "cgt.name/pkg/go-mwclient"
 )
+
+var GlobalFlags struct {
+	Jitter time.Duration
+}
+
+func init() {
+	flag.DurationVar(
+		&GlobalFlags.Jitter,
+		"j",
+		0,
+		"delay run for random duration between 0 and this value (example: 10m)",
+	)
+}
 
 const DefaultConfigFile = "$HOME/.wikibot.json"
 
@@ -46,6 +62,13 @@ func userAgent(module string) string {
 }
 
 func Setup(module string) (*mwclient.Client, error) {
+	if !flag.Parsed() {
+		flag.Parse()
+	}
+	rand.Seed(time.Now().UnixNano())
+	t := time.Duration(rand.Int63n(int64(GlobalFlags.Jitter)))
+	time.Sleep(t)
+
 	cfg, err := loadConfig()
 	if err != nil {
 		return nil, err
