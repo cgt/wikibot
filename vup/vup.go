@@ -134,7 +134,7 @@ func (v Version) FmtDate() string {
 	case time.December:
 		month = "december"
 	default:
-		panic(fmt.Errorf("invalid month: %v", v.Date.Month))
+		panic(fmt.Errorf("invalid month: %v", v.Date.Month()))
 	}
 
 	return fmt.Sprintf("%d. %s %d", v.Date.Day(), month, v.Date.Year())
