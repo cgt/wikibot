@@ -55,7 +55,7 @@ func main() {
 		}
 		v, err := u.Fetcher()
 		if err != nil {
-			log.Printf("[%s] version fetch error: %v", u.PageTitle, rev.Error)
+			log.Printf("[%s] version fetch error: %v", u.PageTitle, err)
 			anyFailed = true
 			continue
 		}
