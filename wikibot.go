@@ -65,9 +65,11 @@ func Setup(module string) (*mwclient.Client, error) {
 	if !flag.Parsed() {
 		flag.Parse()
 	}
-	rand.Seed(time.Now().UnixNano())
-	t := time.Duration(rand.Int63n(int64(GlobalFlags.Jitter)))
-	time.Sleep(t)
+	if GlobalFlags.Jitter != 0 {
+		rand.Seed(time.Now().UnixNano())
+		t := time.Duration(rand.Int63n(int64(GlobalFlags.Jitter)))
+		time.Sleep(t)
+	}
 
 	cfg, err := loadConfig()
 	if err != nil {
