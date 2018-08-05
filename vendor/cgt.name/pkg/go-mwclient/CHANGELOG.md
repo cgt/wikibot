@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+Changes that are required to maintain compatibility with new versions of
+MediaWiki are not considered breaking changes.
+
+## [1.0.3] - 2018-08-03
+### Fixed
+- *Get page* functions no longer treat warnings as fatal errors. Return pages
+  along with warnings instead of only returning the warnings if there are any.
+  Fixes issue #9.
+
+## [1.0.2] - 2018-08-02
+### Fixed
+- Add `"rvslots": "main"` to the *get page* (`prop=revisions`) requests.
+  This change affects `GetPageByID`, `GetPageByName`, `GetPagesByID`,
+  and `GetPagesByName`.  The `rvslots` parameter is required by MediaWiki
+  [1.32.0-wmf.15](https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/core/+/07842be379ca3d4d0bc0608c217dd0e8cd7cbe4b),
+  which returns a warning if it is not used. Earlier versions
+  of MediaWiki will return an "Unrecognized parameter: rvslots." warning when
+  the parameter is used.
+
 ## [1.0.1] - 2017-11-19
 ### Fixed
 - Add canonical import path `cgt.name/pkg/go-mwclient/params` to params

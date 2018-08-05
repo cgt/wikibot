@@ -3,9 +3,12 @@
 
 [[projects]]
   name = "cgt.name/pkg/go-mwclient"
-  packages = [".","params"]
-  revision = "64b7a3d760b3923103bae2a660f9373134358451"
-  version = "v1.0.1"
+  packages = [
+    ".",
+    "params"
+  ]
+  revision = "ef82ed292e9bc93288dce115871f8d217631b680"
+  version = "v1.0.3"
 
 [[projects]]
   name = "github.com/antonholmquist/jason"
@@ -16,7 +19,7 @@
   branch = "master"
   name = "github.com/mrjones/oauth"
   packages = ["."]
-  revision = "3f67d9c274355678b2f9844b08d643e2f9213340"
+  revision = "f4e24b6d100c9436cbfe5d439581653d455490e7"
 
 [solve-meta]
   analyzer-name = "dep"
