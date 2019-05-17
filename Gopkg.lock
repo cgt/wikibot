@@ -2,28 +2,38 @@
 
 
 [[projects]]
+  digest = "1:253c439b24f8be9cabafc87f6741a7ad54ef03a87d459fcca322303acdbbe0b2"
   name = "cgt.name/pkg/go-mwclient"
   packages = [
     ".",
-    "params"
+    "params",
   ]
+  pruneopts = ""
   revision = "ef82ed292e9bc93288dce115871f8d217631b680"
   version = "v1.0.3"
 
 [[projects]]
+  digest = "1:4213d8c49d10f96732346d2db7c21be53a3d60acf28f4fa533f201dca21f8c96"
   name = "github.com/antonholmquist/jason"
   packages = ["."]
+  pruneopts = ""
   revision = "962e09b85496e2e158eec1567fb4c826ce3d55d1"
 
 [[projects]]
   branch = "master"
+  digest = "1:1712e332e2acf10a14b968633fc06bbcece3dc6dc9231f4906396dad71ac08ec"
   name = "github.com/mrjones/oauth"
   packages = ["."]
+  pruneopts = ""
   revision = "f4e24b6d100c9436cbfe5d439581653d455490e7"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "a0496c5a1928fe5875526c0b947212914f4cfc7f8ddfecfab7839a8597886cba"
+  input-imports = [
+    "cgt.name/pkg/go-mwclient",
+    "cgt.name/pkg/go-mwclient/params",
+    "github.com/antonholmquist/jason",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1
